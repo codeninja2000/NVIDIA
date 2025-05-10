@@ -1,0 +1,30 @@
+@startuml 02_asl_activity
+!theme sunlust
+title 02 ASL Activity Diagram
+start
+
+:Load ASL dataset;
+:Preprocess images;
+:Split data into training & validation sets;
+:Visualize data;
+:Normalize images;
+:Create custome dataset class;
+
+if (GPU available?) then (Yes)
+  :Set device to CUDA;
+else (No)
+  :Set device to CPU;
+endif
+
+:Define neural network model;
+:Compile model with optimizer;
+
+repeat
+  :Train model on ASL dataset;
+  :Validate using test data;
+  
+repeat while (epoch < 20);
+
+:Evaluate model performance;
+stop
+@enduml

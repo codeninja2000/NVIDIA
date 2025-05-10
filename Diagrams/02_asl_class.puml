@@ -1,0 +1,13 @@
+@startuml 02_asl_class
+!theme sunlust
+title 02 ASL Class Diagram
+class MyDataset {
+  - torch.Tensor xs
+  - torch.Tensor ys
+  + __init__(x_df, y_df)
+  + __getitem__(idx: int)
+  + __len__(): int
+}
+
+Dataset <|-- MyDataset
+@enduml

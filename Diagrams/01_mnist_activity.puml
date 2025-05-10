@@ -1,0 +1,17 @@
+@startuml 01_mnist_activity
+!theme sunlust
+title 01 MNIST Activity Diagram
+start
+:Load MNIST dataset;
+:Initialize model layers;
+:Define loss function and optimizer;
+:Initialize DataLoaders;
+repeat
+:Print 'Epoch: {epoch}';
+:Train the model;
+:Validate the model;
+:Print training loss and accuracy;
+:Print validation loss and accuracy;
+repeat while (epoch < epochs)
+stop
+@enduml

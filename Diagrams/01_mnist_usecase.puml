@@ -1,0 +1,21 @@
+@startuml 01_mnist_usecase
+title MNIST Use Case Diagram
+!theme sunlust 
+left to right direction
+actor "User" as user
+actor "System" as system
+
+rectangle NeuralNetworkSystem {
+  usecase "Train Model" as train
+  usecase "Validate Model" as validate
+  usecase "Clear GPU Memory" as clear
+}
+
+user --> train
+user --> validate
+user --> clear
+
+system --> train
+system --> validate
+
+@enduml
