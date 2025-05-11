@@ -1,0 +1,20 @@
+@startuml 04b_class
+
+!theme sunlust
+title 04b ASL Prediction Class Diagram
+
+class MyConvBlock {
+    - model : nn.Sequential
+    + __init__(int, int, float)
+    + forward(torch.Tensor) : torch.Tensor
+}
+
+class nv_utils {
+    + get_batch_accuracy(torch.Tensor, torch.Tensor, int) : float
+    + train(nn.Module, DataLoader, int, Callable,Optimizer, Callable)
+    + validate(nn.Module, DataLoader, int, Callable)
+}
+
+MyConvBlock --> nn.Sequential : uses
+nv_utils --> MyConvBlock : depends on
+@enduml

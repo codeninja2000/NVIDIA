@@ -1,0 +1,25 @@
+@startuml 03_asl_activity
+!theme sunlust
+title 03 ASL CNN Activity Diagram
+
+start
+:Initialize CNN Creation;
+:Define Input Layer\n;
+:Create Convolutional Layer;
+:Apply ReLU Activation;
+:Apply MaxPooling Layer;
+
+:Check for additional convolution blocks?;
+if (More Conv Blocks?) then (yes)
+  :Add additional Conv2D layer;
+  :Apply ReLU Activation;
+  :Apply MaxPooling Layer;
+endif
+
+:Flatten Feature Maps;
+:Add Fully Connected Layers;
+:Add Output Layer\n;
+:Assemble Model;
+:Compile Model with Loss and Optimizer;
+stop
+@enduml

@@ -1,0 +1,34 @@
+@startuml 05a_activity
+title 05a Doggy Door Activity Diagram
+!theme sunlust
+start
+
+:Load Pre-trained VGG16 Model;
+:Move Model to Device (CPU/GPU);
+
+:Load Image;
+:Display Original Image;
+
+:Preprocess Image;
+note right
+Preprocessing Steps:
+1. Resize to (224, 224)
+2. Normalize (mean, std)
+3. CenterCrop
+4. Add Batch Dimension
+end note
+
+:Pass Preprocessed Image to Model;
+:Get Predictions (1000 Categories);
+
+if (Is it a Dog?) then (Yes)
+    :Allow Entry;
+else if (Is it a Cat?) then (Yes)
+    :Keep Inside;
+else (No)
+    :Deny Entry;
+endif
+
+:Display Prediction Results;
+stop
+@enduml

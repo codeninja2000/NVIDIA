@@ -1,0 +1,34 @@
+@startuml  06_activity
+title 06 - NLP - Activity Diagram
+!theme sunlust
+
+start
+
+:Load Pre-trained Tokenizer;
+:Load Pre-trained BERT Model;
+
+:Input Text Sentences;
+note right
+Example:
+1. Context: "I understand equations, both the simple and quadratical."
+2. Question: "What kind of equations do I understand?"
+end note
+
+:Tokenize Input Text;
+:Generate Segment IDs;
+
+if (Task Type?) then (Masked Word Prediction)
+    :Mask a Word in the Input;
+    :Predict the Masked Word;
+    :Decode Predicted Word;
+else (Question Answering)
+    :Feed Tokens and Segments to Model;
+    :Predict Start and End Positions of Answer;
+    :Extract Answer Sequence;
+    :Decode Answer Sequence;
+endif
+
+:Display Results;
+
+stop
+@enduml

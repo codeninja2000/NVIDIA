@@ -1,0 +1,30 @@
+@startuml 04a_activity
+title 04a ASL Augmentation
+!theme sunlust
+start
+
+:Load ASL dataset;
+:Preprocess images;
+:Apply data augmentation techniques;
+:Normalize image data;
+:Split dataset into training & validation sets;
+
+if (GPU available?) then (Yes)
+  :Set device to CUDA;
+else (No)
+  :Set device to CPU;
+endif
+
+:Define convolutional neural network (CNN);
+:Compile model with optimizer and loss function;
+
+repeat
+  :Train model on augmented dataset;
+  :Validate using test data;
+ 
+repeat while (epoch < 20);
+
+:Evaluate model performance;
+:Save trained model for deployment;
+stop
+@enduml

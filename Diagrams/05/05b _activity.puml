@@ -1,0 +1,54 @@
+@startuml 05b_activity
+title 05a Presidential Doggy Door Activity Diagram
+!theme sunlust
+
+start
+
+:Load Pre-trained VGG16 Model;
+:Move Model to Device (CPU/GPU);
+
+:Freeze Pre-trained Layers;
+:Add New Layers for Binary Classification;
+
+:Prepare Dataset;
+note right
+Dataset Preparation:
+1. Load images of "Bo" and "Not Bo"
+2. Apply preprocessing (resize, normalize, etc.)
+3. Create DataLoaders
+end note
+
+:Train the Model;
+note right
+Training Steps:
+1. Use Binary Cross Entropy Loss
+2. Apply Data Augmentation
+3. Train only new layers
+end note
+
+:Validate the Model;
+
+if (Fine-tuning Needed?) then (Yes)
+    :Unfreeze Pre-trained Layers;
+    :Fine-tune Model with Small Learning Rate;
+else (No)
+    :Skip Fine-tuning;
+endif
+
+:Make Predictions;
+note right
+Prediction Steps:
+1. Preprocess input image
+2. Pass image through the model
+3. Interpret output (negative = Bo, positive = Not Bo)
+end note
+
+:Implement Doggy Door Logic;
+if (Prediction < 0) then (Yes)
+    :Allow Bo to Enter;
+else (No)
+    :Deny Entry;
+endif
+
+stop
+@enduml

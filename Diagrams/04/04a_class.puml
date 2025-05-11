@@ -1,0 +1,10 @@
+@startuml 04a_class
+!theme sunlust
+class MyConvBlock {
+  + __init__(in_ch: int, out_ch: int, dropout_p: float)
+  + forward(x: Tensor): Tensor
+}
+
+MyConvBlock --|> nn.Module
+
+@enduml

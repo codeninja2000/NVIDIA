@@ -1,0 +1,31 @@
+@startuml 05b usecase
+title Presidential Doggy Door Use Case Diagram
+!theme sunlust
+left to right direction
+
+actor "User" as User
+actor "Pre-trained Model" as Model
+
+rectangle "Doggy Door System" {
+    usecase "Load Pre-trained Model" as UC1
+    usecase "Freeze Pre-trained Layers" as UC2
+    usecase "Add New Layers" as UC3
+    usecase "Prepare Dataset" as UC4
+    usecase "Train Model" as UC5
+    usecase "Validate Model" as UC6
+    usecase "Fine-tune Model" as UC7
+    usecase "Make Predictions" as UC8
+    usecase "Implement Doggy Door Logic" as UC9
+}
+
+User --> UC1 : Initiates
+User --> UC4 : Provides Data
+UC1 --> Model : Uses
+UC2 --> Model : Freezes Layers
+UC3 --> Model : Adds Layers
+UC5 --> Model : Trains
+UC6 --> Model : Validates
+UC7 --> Model : Fine-tunes
+UC8 --> Model : Predicts
+UC9 --> UC8 : Uses Predictions
+@enduml

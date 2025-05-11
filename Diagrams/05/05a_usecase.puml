@@ -1,0 +1,23 @@
+@startuml 05a_class
+title Doggy Door Use Case Diagram
+!theme sunlust
+
+actor "User" as User
+actor "Pre-trained Model" as Model
+
+rectangle "Doggy Door System" {
+    usecase "Load Pre-trained Model" as UC1
+    usecase "Preprocess Image" as UC2
+    usecase "Make Predictions" as UC3
+    usecase "Classify Animal" as UC4
+    usecase "Allow/Deny Entry" as UC5
+}
+
+User --> UC1 : Initiates
+User --> UC2 : Provides Image
+UC1 --> Model : Uses
+UC2 --> Model : Prepares Input
+UC3 --> Model : Passes Image
+UC3 --> UC4 : Provides Predictions
+UC4 --> UC5 : Determines Action
+@enduml

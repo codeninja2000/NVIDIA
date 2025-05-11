@@ -1,0 +1,16 @@
+@startuml 04
+class MyConvBlock {
+    - model : nn.Sequential
+    + __init__(in_ch: int, out_ch: int, dropout_p: float)
+    + forward(x: torch.Tensor) : torch.Tensor
+}
+
+class nv_utils {
+    + get_batch_accuracy(output: torch.Tensor, y: torch.Tensor, N: int) : float
+    + train(model: nn.Module, train_loader: DataLoader, train_N: int, random_trans: Callable, optimizer: Optimizer, loss_function: Callable)
+    + validate(model: nn.Module, valid_loader: DataLoader, valid_N: int, loss_function: Callable)
+}
+
+MyConvBlock --> nn.Sequential : uses
+nv_utils --> MyConvBlock : depends on
+@enduml

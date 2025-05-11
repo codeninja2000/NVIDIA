@@ -1,0 +1,29 @@
+@startuml 06_usecase
+title NLP - Use Case Diagram
+!theme sunlust
+left to right direction
+
+actor "User" as User
+actor "BERT Model" as Model
+
+rectangle "NLP with BERT System" {
+    usecase "Load Pre-trained Tokenizer" as UC1
+    usecase "Load Pre-trained BERT Model" as UC2
+    usecase "Tokenize Input Text" as UC3
+    usecase "Generate Segment IDs" as UC4
+    usecase "Perform Masked Word Prediction" as UC5
+    usecase "Perform Question Answering" as UC6
+    usecase "Decode Predicted Output" as UC7
+}
+
+User --> UC1 : Initiates
+User --> UC2 : Initiates
+User --> UC3 : Provides Input
+User --> UC4 : Provides Input
+User --> UC7 : Views Results
+
+UC5 --> Model : Uses
+UC6 --> Model : Uses
+UC3 --> Model : Uses
+UC4 --> Model : Uses
+@enduml

@@ -1,0 +1,13 @@
+@startuml 03_asl_class
+!theme sunlust
+title 03 ASL Activity Diagram
+class MyDataset {
+  - xs: Tensor
+  - ys: Tensor
+  + __init__(base_df: DataFrame)
+  + __getitem__(idx: int): Tuple[Tensor, Tensor]
+  + __len__(): int
+}
+
+Dataset <|-- MyDataset
+@enduml

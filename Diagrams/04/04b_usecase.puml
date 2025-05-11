@@ -1,0 +1,23 @@
+@startuml 04b_usecase
+title 04b ASL Prediction Use Case Diagram
+!theme sunlust
+left to right direction
+actor "User" as User
+actor "System" as System
+
+rectangle "ASL Model Deployment" {
+    usecase "Load Pre-trained Model" as UC1
+    usecase "Preprocess Image" as UC2
+    usecase "Perform Inference" as UC3
+    usecase "Display Prediction" as UC4
+    usecase "Clear GPU Memory" as UC5
+}
+
+User --> UC1
+User --> UC2
+User --> UC4
+User --> UC5
+
+System --> UC3
+UC3 --> UC4
+@enduml

@@ -1,0 +1,35 @@
+@startuml 04b_activity
+!theme sunlust
+title 04b ASL Prediction Activity Diagram
+start
+
+:Load the pre-trained model;
+if (Custom module required?) then (Yes)
+    :Import `MyConvBlock` from `nv_utils.py`;
+else (No)
+    :Proceed;
+endif
+
+:Load an image from `data/asl_images`;
+:Display the image using `matplotlib`;
+
+:Preprocess the image;
+note right
+Preprocessing steps:
+1. Convert to grayscale
+2. Resize to 28x28
+3. Normalize to [0, 1]
+end note
+
+:Batch the image (add batch dimension);
+:Move the image to the same device as the model;
+
+:Pass the image to the model for inference;
+:Obtain the output (24-length array);
+
+:Find the index of the highest probability using `argmax`;
+:Map the index to the corresponding letter;
+:Display the predicted letter;
+
+stop
+@enduml
