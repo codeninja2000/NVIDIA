@@ -1,0 +1,55 @@
+@startuml 07_activity
+title Lab 7 Assessment - Activity Diagram
+!theme sunlust
+
+start
+
+:Load Pre-trained VGG16 Model;
+:Freeze Base Model Layers;
+
+:Modify Model Architecture;
+note right
+Add layers:
+1. Flatten
+2. Fully Connected Layers
+3. Output Layer with 6 Neurons
+end note
+
+:Compile Model;
+note right
+Use:
+- Loss: CrossEntropyLoss
+- Optimizer: Adam
+end note
+
+:Prepare Dataset;
+note right
+Steps:
+1. Load images from train/valid folders
+2. Apply preprocessing and augmentation
+3. Create DataLoaders
+end note
+
+:Train the Model;
+note right
+Train for multiple epochs using:
+- Training DataLoader
+- Random Transformations
+end note
+
+:Validate the Model;
+if (Validation Accuracy >= 92%) then (Yes)
+    :Evaluate the Model;
+else (No)
+    :Unfreeze Base Model Layers;
+    :Fine-tune Model with Low Learning Rate;
+    :Train and Validate Again;
+endif
+
+:--Run Assessment-- ;
+:--Generate Certificate-- ;
+note right
+I beleive the run assessment and generate certificate sections were only valid for the live class
+end note
+stop
+@enduml

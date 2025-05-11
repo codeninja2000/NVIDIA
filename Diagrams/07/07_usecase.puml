@@ -1,0 +1,33 @@
+@startuml 07_usecase
+title 07 Assessment - Use Case Diagram
+left to right direction
+!theme sunlust
+
+actor "User" as User
+actor "--Assessment System -- " as System
+
+rectangle "Fruit Classification System" {
+    usecase "Load Pre-trained VGG16 Model" as UC1
+    usecase "Freeze Base Model Layers" as UC2
+    usecase "Modify Model Architecture" as UC3
+    usecase "Compile Model" as UC4
+    usecase "Prepare Dataset" as UC5
+    usecase "Train Model" as UC6
+    usecase "Validate Model" as UC7
+    usecase "Fine-tune Model" as UC8
+    usecase "--Run Assessment-- " as UC9
+    usecase "--Generate Certificate-- " as UC10
+}
+
+User --> UC1 : Initiates
+User --> UC2 : Freezes Layers
+User --> UC3 : Modifies Architecture
+User --> UC4 : Compiles Model
+User --> UC5 : Prepares Data
+User --> UC6 : Trains Model
+User --> UC7 : Validates Model
+User --> UC8 : Fine-tunes Model
+User --> UC9 : Submits Model
+System --> UC9 : "--Assesses Model-- "
+System --> UC10 : "--Generates Certificate-- "
+@enduml
